@@ -1,0 +1,31 @@
+{
+  "ecmaVersion": 7,
+  "libs": [
+    "browser"
+  ],
+  "loadEagerly": [
+    "app/**/*.jsx",
+    "app/**/*.js"
+  ],
+  "plugins": {
+    "modules": {
+      "dontLoad": "",
+      "load": "",
+      "modules": ""
+    },
+    "es_modules": {},
+    "commonjs": {},
+    "requirejs": {
+      "baseURL": "",
+      "paths": "",
+      "override": ""
+    },
+    "node": {
+      "dontLoad": "",
+      "load": "",
+      "modules": ""
+    },
+    "jsx": {}
+  },
+  "dontLoad": []
+}
