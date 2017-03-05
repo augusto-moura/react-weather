@@ -6,9 +6,7 @@ const containerStyle = {
   width: '100%',
 };
 
-export default function WeatherMessage(props) {
-  const { temp, location } = props;
-
+export default function WeatherMessage({temp, location}) {
   return (
     <div style={containerStyle}>
       It&apos;s {temp}°C in {location}.

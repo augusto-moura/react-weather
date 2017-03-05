@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import WeatherForm from './WeatherForm';
 import WeatherMessage from './WeatherMessage';
 import OpenWeatherAPISingleton from '../api/OpenWeatherAPI';
@@ -44,7 +44,6 @@ export default class ShowWeather extends Component {
       .getTemp(location)
       .then((obj) => {
         const temp = obj.main.temp;
-        console.log('cool');
 
         this.setState({
           location: obj.name,
@@ -56,7 +55,6 @@ export default class ShowWeather extends Component {
       })
       .catch((err) => {
         alert(err.message);
-        console.error(err);
 
         this.setState({
           isLoading: false,
