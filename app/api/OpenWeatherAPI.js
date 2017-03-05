@@ -9,8 +9,14 @@ export class OpenWeatherAPI {
     const encodedLocation = window.encodeURIComponent(location);
 
     return fetch(`${this.weatherEndpoint}?q=${encodedLocation}&units=${this.unit}&APPID=${this.apiKey}`)
-      .then(r => r.text())
-      .then(JSON.parse);
+      .then(r => r.json())
+      .then((res) => {
+        if (res.cod && res.message) {
+          throw res;
+        }
+
+        return res;
+      });
   }
 }
 
