@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import WeatherForm from './WeatherForm';
 import WeatherMessage from './WeatherMessage';
+import OpenWeatherAPISingleton from '../api/OpenWeatherAPI';
 
 const containerStyle = {
   width: '30em',
@@ -14,32 +15,36 @@ const titleStyle = {
   textAlign: 'center',
 };
 
-export default class ShowWeather extends Component {
 
+export default class ShowWeather extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       location: 'Miami',
       temp: 32,
     };
 
-    this.onWheatherFormSearch = this.onWheatherFormSearch.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
-  onWheatherFormSearch(location) {
-    this.setState({
-      location,
-      temp: 26,
-    });
+  handleSearch(location) {
+    OpenWeatherAPISingleton
+      .getTemp(location)
+      .then((obj) => {
+        const temp = obj.main.temp;
+        this.setState({ location, temp });
+        return temp;
+      });
   }
 
   render() {
+    const { temp, location } = this.state;
+
     return (
       <div style={containerStyle}>
         <h1 style={titleStyle}>Get Weather</h1>
-        <WeatherForm onSearch={this.onWheatherFormSearch} />
-        <WeatherMessage themperature={this.state.temp} location={this.state.location} />
+        <WeatherForm onSearch={this.handleSearch} />
+        <WeatherMessage temp={temp} location={location} />
       </div>
     );
   }

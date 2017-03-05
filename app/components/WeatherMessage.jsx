@@ -7,9 +7,11 @@ const containerStyle = {
 };
 
 export default function (props) {
+  const { temp, location } = props;
+
   return (
     <div style={containerStyle}>
-      It&apos;s {props.themperature}°C in {props.location}.
+      It&apos;s {temp}°C in {location}.
     </div>
   );
 }
