@@ -20,7 +20,7 @@ const activeLinkStyle = {
   fontWeight: 'bold',
 };
 
-export default function () {
+export default function Nav() {
   return (
     <div style={navStyle}>
       <IndexLink to="/" style={linkStyle} activeStyle={activeLinkStyle}>Get weather</IndexLink>

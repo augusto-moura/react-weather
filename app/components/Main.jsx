@@ -5,7 +5,7 @@ const containerStyle = {
   width: '100vw',
 };
 
-export default function (props) {
+export default function Main(props) {
   return (
     <div style={containerStyle}>
       <Nav />

@@ -6,7 +6,7 @@ const containerStyle = {
   width: '100%',
 };
 
-export default function (props) {
+export default function WeatherMessage(props) {
   const { temp, location } = props;
 
   return (

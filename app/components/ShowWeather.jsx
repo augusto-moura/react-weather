@@ -44,9 +44,10 @@ export default class ShowWeather extends Component {
       .getTemp(location)
       .then((obj) => {
         const temp = obj.main.temp;
+        console.log('cool');
 
         this.setState({
-          location,
+          location: obj.name,
           temp,
           isLoading: false,
         });
