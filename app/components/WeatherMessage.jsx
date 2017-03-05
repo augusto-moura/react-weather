@@ -1,15 +1,15 @@
 import React from 'react';
-import Nav from './Nav';
 
 const containerStyle = {
-  width: '100vw',
+  paddingTop: '1em',
+  textAlign: 'center',
+  width: '100%',
 };
 
 export default function (props) {
   return (
     <div style={containerStyle}>
-      <Nav />
-      {props.children}
+      {props.message}
     </div>
   );
 }

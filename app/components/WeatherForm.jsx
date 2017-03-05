@@ -6,28 +6,33 @@ const inputStyle = {
   borderRadius: '3px',
   boxSizing: 'border-box',
   display: 'block',
-  margin: '.5em',
   outline: 'none',
+  margin: '.5em 0',
   padding: '.5em',
   width: '100%',
 };
 
 const submitButtonStyle = {
   background: 'none',
-  border: 'solid 1px #60a3e2',
+  border: 'solid 1px #93b8db',
+  borderRadius: '3px',
   boxSizing: 'border-box',
   color: '#60a3e2',
   cursor: 'pointer',
   display: 'block',
   fontWeight: 'bold',
-  margin: '.5em',
+  margin: '.5em 0',
   padding: '.5em',
   width: '100%',
 };
 
+const formStyle = {
+  padding: '.3em',
+};
+
 export default function (props) {
   return (
-    <form onSubmit={preventDefaulted(props.onSubmit)}>
+    <form style={formStyle} onSubmit={preventDefaulted(props.onSubmit)}>
       <input style={inputStyle} type="text" placeholder="Enter city name" />
       <button style={submitButtonStyle} type="submit">Get Weather</button>
     </form>
