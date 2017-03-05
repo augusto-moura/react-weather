@@ -2,7 +2,6 @@
   "extends": "airbnb",
   "rules": {
     "no-console": "off",
-    "react/jsx-no-bind": "off",
     "react/prop-types": "off"
   },
   "env": {

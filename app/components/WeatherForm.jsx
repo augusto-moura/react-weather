@@ -1,5 +1,4 @@
-import React from 'react';
-import preventDefaulted from '../util/preventDefaultWrapper';
+import React, { Component } from 'react';
 
 const inputStyle = {
   border: 'solid 1px #ccc',
@@ -30,11 +29,33 @@ const formStyle = {
   padding: '.3em',
 };
 
-export default function (props) {
-  return (
-    <form style={formStyle} onSubmit={preventDefaulted(props.onSubmit)}>
-      <input style={inputStyle} type="text" placeholder="Enter city name" />
-      <button style={submitButtonStyle} type="submit">Get Weather</button>
-    </form>
-  );
+export default class WheaterForm extends Component {
+  constructor(props) {
+    super(props);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    const location = this.locationElement.value;
+
+    if (location !== undefined && location.length > 0) {
+      this.locationElement.value = '';
+      this.props.onSearch(location);
+    }
+  }
+
+  render() {
+    return (
+      <form style={formStyle} onSubmit={this.onSubmit}>
+        <input
+          ref={l => (this.locationElement = l)}
+          style={inputStyle}
+          type="text"
+          placeholder="Enter city name"
+        />
+        <button style={submitButtonStyle} type="submit">Get Weather</button>
+      </form>
+    );
+  }
 }

@@ -9,7 +9,7 @@ const containerStyle = {
 export default function (props) {
   return (
     <div style={containerStyle}>
-      {props.message}
+      It&apos;s {props.themperature}°C in {props.location}.
     </div>
   );
 }

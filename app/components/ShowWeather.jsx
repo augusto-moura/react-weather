@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import WeatherForm from './WeatherForm';
 import WeatherMessage from './WeatherMessage';
 
@@ -14,12 +14,33 @@ const titleStyle = {
   textAlign: 'center',
 };
 
-export default function () {
-  return (
-    <div style={containerStyle}>
-      <h1 style={titleStyle}>Get Weather</h1>
-      <WeatherForm />
-      <WeatherMessage message="It's 26°C in Goiânia" />
-    </div>
-  );
+export default class ShowWeather extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      location: 'Miami',
+      temp: 32,
+    };
+
+    this.onWheatherFormSearch = this.onWheatherFormSearch.bind(this);
+  }
+
+  onWheatherFormSearch(location) {
+    this.setState({
+      location,
+      temp: 26,
+    });
+  }
+
+  render() {
+    return (
+      <div style={containerStyle}>
+        <h1 style={titleStyle}>Get Weather</h1>
+        <WeatherForm onSearch={this.onWheatherFormSearch} />
+        <WeatherMessage themperature={this.state.temp} location={this.state.location} />
+      </div>
+    );
+  }
 }
