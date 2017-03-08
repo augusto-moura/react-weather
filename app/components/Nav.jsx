@@ -10,6 +10,13 @@ export default class Nav extends Component {
 
   onSearch(event) {
     event.preventDefault();
+    const searchText = this.searchElem.value;
+    const searchTextEncoded = encodeURIComponent(searchText);
+
+    if (searchText) {
+      this.searchElem.value = '';
+      window.location.hash = `#/?location=${searchTextEncoded}`;
+    }
   }
 
   render() {
@@ -29,7 +36,7 @@ export default class Nav extends Component {
             <ul className="menu">
               <li>
                 <input
-                  ref={s => (this.searchText = s)}
+                  ref={s => (this.searchElem = s)}
                   type="search"
                   placeholder="Search weather by location"
                 />

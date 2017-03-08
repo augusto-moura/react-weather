@@ -1,0 +1,11 @@
+$page-title-padding: 2.5rem;
+
+.page-title {
+    color: #555;
+    padding-top: $page-title-padding;
+    padding-bottom: $page-title-padding;
+}
+
+input[type=search] {
+    box-shadow: none;
+}

@@ -16,10 +16,28 @@ export default class ShowWeather extends Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
 
+  componentDidMount() {
+    const { location } = this.props.location.query;
+
+    if (location) {
+      this.handleSearch(location);
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    const { location } = newProps.location.query;
+
+    if (location) {
+      this.handleSearch(location);
+    }
+  }
+
   handleSearch(location) {
     this.setState({
       isLoading: true,
       errorMessage: null,
+      location: null,
+      temp: null,
     });
 
     const onTempFetched = ({ name, main: { temp } }) => this.setState({
