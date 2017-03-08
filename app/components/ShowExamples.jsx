@@ -1,12 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { searchLocationLink } from '../util/RoutesUtil';
 
-export function searchLocationLink(location) {
-  return {
-    pathname: '/',
-    query: { location },
-  };
-}
 
 export default function ShowExamples() {
   return (

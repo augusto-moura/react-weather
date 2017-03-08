@@ -24,7 +24,7 @@ export default class WheaterForm extends Component {
           type="text"
           placeholder="Enter city name"
         />
-        <button type="submit">Get Weather</button>
+        <button className="button hollow expanded" type="submit">Get Weather</button>
       </form>
     );
   }
