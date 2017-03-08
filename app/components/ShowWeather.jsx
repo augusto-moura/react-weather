@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import WeatherForm from './WeatherForm';
 import WeatherMessage from './WeatherMessage';
+import ErrorModal from './ErrorModal';
 import OpenWeatherAPISingleton from '../api/OpenWeatherAPI';
 
 
@@ -10,12 +11,16 @@ export default class ShowWeather extends Component {
     super(props);
     this.state = {
       isLoading: false,
+      errorMessage: null,
     };
     this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleSearch(location) {
-    this.setState({ isLoading: true });
+    this.setState({
+      isLoading: true,
+      errorMessage: null,
+    });
 
     const onTempFetched = ({ name, main: { temp } }) => this.setState({
       temp,
@@ -23,8 +28,9 @@ export default class ShowWeather extends Component {
       isLoading: false,
     });
 
-    const onFetchTempError = () => this.setState({
+    const onFetchTempError = error => this.setState({
       isLoading: false,
+      errorMessage: error.message,
     });
 
     OpenWeatherAPISingleton
@@ -34,17 +40,18 @@ export default class ShowWeather extends Component {
   }
 
   render() {
-    const { isLoading, temp, location } = this.state;
+    const { isLoading, temp, location, errorMessage } = this.state;
 
     return (
       <div>
         <h1 className="text-center">Get Weather</h1>
         <WeatherForm onSearch={this.handleSearch} />
-        {
-          isLoading
+
+        {isLoading
             ? <div className="text-center">Fetching weather</div>
-            : Boolean(location) && <WeatherMessage temp={temp} location={location} />
-        }
+            : Boolean(location) && <WeatherMessage temp={temp} location={location} />}
+
+        {errorMessage !== null && <ErrorModal message={errorMessage} />}
       </div>
     );
   }
