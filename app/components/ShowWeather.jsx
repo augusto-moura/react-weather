@@ -3,19 +3,6 @@ import WeatherForm from './WeatherForm';
 import WeatherMessage from './WeatherMessage';
 import OpenWeatherAPISingleton from '../api/OpenWeatherAPI';
 
-const containerStyle = {
-  width: '30em',
-  maxWidth: '100vw',
-  margin: '0 auto',
-};
-
-const titleStyle = {
-  fontSize: '3em',
-  padding: '.5em',
-  textAlign: 'center',
-};
-
-
 export function renderMessage(isLoading, temp, location) {
   if (isLoading) {
     return <div>Fetching weather</div>;
@@ -53,9 +40,7 @@ export default class ShowWeather extends Component {
 
         return temp;
       })
-      .catch((err) => {
-        alert(err.message);
-
+      .catch(() => {
         this.setState({
           isLoading: false,
         });
@@ -66,8 +51,8 @@ export default class ShowWeather extends Component {
     const { isLoading, temp, location } = this.state;
 
     return (
-      <div style={containerStyle}>
-        <h1 style={titleStyle}>Get Weather</h1>
+      <div>
+        <h1>Get Weather</h1>
         <WeatherForm onSearch={this.handleSearch} />
         {renderMessage(isLoading, temp, location)}
       </div>
