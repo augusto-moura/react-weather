@@ -31,7 +31,7 @@ export default class Nav extends Component {
                 <input
                   ref={s => (this.searchText = s)}
                   type="search"
-                  placeholder="Search weather"
+                  placeholder="Search weather by location"
                 />
               </li>
               <li><input type="submit" className="button" value="Get Weather" /></li>

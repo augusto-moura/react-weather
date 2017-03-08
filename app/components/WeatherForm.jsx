@@ -20,9 +20,9 @@ export default class WheaterForm extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <input
-          ref={l => (this.locationElement = l)}
-          type="text"
-          placeholder="Enter city name"
+          ref={e => (this.locationElement = e)}
+          type="search"
+          placeholder="Search weather by location"
         />
         <button className="button hollow expanded" type="submit">Get Weather</button>
       </form>
