@@ -3,7 +3,6 @@
   "rules": {
     "no-console": "off",
     "react/prop-types": "off",
-    "object-curly-spacing": "off",
     "import/no-webpack-loader-syntax": "off"
   },
   "env": {

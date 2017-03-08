@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import WeatherForm from './WeatherForm';
 import WeatherMessage from './WeatherMessage';
 import OpenWeatherAPISingleton from '../api/OpenWeatherAPI';
