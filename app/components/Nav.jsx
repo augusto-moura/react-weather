@@ -27,7 +27,13 @@ export default class Nav extends Component {
         <div className="top-bar-right">
           <form onSubmit={this.onSearch}>
             <ul className="menu">
-              <li><input type="search" placeholder="Search weather" /></li>
+              <li>
+                <input
+                  ref={s => (this.searchText = s)}
+                  type="search"
+                  placeholder="Search weather"
+                />
+              </li>
               <li><input type="submit" className="button" value="Get Weather" /></li>
             </ul>
           </form>
