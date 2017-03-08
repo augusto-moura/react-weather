@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function ShowExamples() {
-  return <div>Showing examples</div>;
+  return <h1>Examples</h1>;
 }
