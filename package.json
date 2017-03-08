@@ -12,15 +12,21 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "express": "^4.14.1",
-        "react": "^15.4.2",
-        "react-dom": "^15.4.2",
-        "react-router": "2.0.0",
         "babel-core": "^6.22.1",
         "babel-loader": "^6.2.10s",
         "babel-preset-latest": "^6.22.0",
         "babel-preset-react": "^6.22.0",
         "babel-preset-stage-2": "^6.22.0",
+        "css-loader": "0.23.1",
+        "express": "^4.14.1",
+        "foundation-sites": "6.2.0",
+        "jquery": "2.2.1",
+        "lodash": "^4.17.4",
+        "react": "^15.4.2",
+        "react-dom": "^15.4.2",
+        "react-router": "2.0.0",
+        "script-loader": "0.6.1",
+        "style-loader": "0.13.0",
         "webpack": "^1.14.0"
     },
     "devDependencies": {
@@ -29,7 +35,7 @@
         "eslint-plugin-import": "^2.2.0",
         "eslint-plugin-jsx-a11y": "^3.0.2",
         "eslint-plugin-react": "^6.9.0",
-        "lodash": "^4.17.4",
+        "tern": "^0.21.0",
         "tern-jsx": "^1.0.2"
     }
 }
